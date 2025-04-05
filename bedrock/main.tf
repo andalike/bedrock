@@ -77,6 +77,11 @@ resource "aws_iam_policy_attachment" "bedrock_attachment" {
 }
 
 output "bedrock_role_arn" {
-  description = "ARN of Model"
-  value =  aws_iam_role.bedrock_role.arn
+  description = "ARN of the IAM role for Bedrock access"
+  value       = aws_iam_role.bedrock_role.arn
+}
+
+output "bedrock_api_endpoint" {
+  description = "AWS Bedrock API endpoint for on-demand inference"
+  value       = "https://bedrock-runtime.${var.region}.amazonaws.com/model/${var.foundation_models[0]}/invoke"
 }

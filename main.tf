@@ -14,3 +14,13 @@ module "bedrock" {
     User        = "Ankit"
   }
 }
+
+output "bedrock_role_arn" {
+  description = "ARN of the IAM role for Bedrock access"
+  value       = module.bedrock.bedrock_role_arn
+}
+
+output "bedrock_api_endpoint" {
+  description = "AWS Bedrock API endpoint for on-demand inference"
+  value       = module.bedrock.bedrock_api_endpoint
+}
